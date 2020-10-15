@@ -33,8 +33,15 @@ const keyHide = (x) => {
   x.remove()
 }
 
-let alphabetIndex = 0;
 let intervalRunning = false;
+
+// Function random number -----
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min +1)) + min;
+}
 
 // Function for key input -----
 
@@ -49,11 +56,14 @@ window.addEventListener('keydown', (event) => {
   setTimeout(function() { keyHide(elt); }, 800)
 
   playSound(keyLow)
+  keyPressed.push(keyLow)
 })
 
 // Function animation alphabet -----
 
 const alphabetAnimation = () => {
+  let alphabetIndex = getRandomIntInclusive(0, alphabet.length - 1)
+
   let elt = document.createElement('p')
   elt.innerHTML = alphabet[alphabetIndex]
   key.appendChild(elt)
@@ -61,12 +71,7 @@ const alphabetAnimation = () => {
   setTimeout( () => { keyHide(elt) }, 800)
 
   playSound(alphabet[alphabetIndex])
-
-  alphabetIndex++;
-  if(alphabetIndex == 26) alphabetIndex = 0;
 }
-
-//const intervalAlphabet = setInterval(alphabetAnimation, 100)
 
 // Function playSound -----
 
@@ -75,6 +80,11 @@ const playSound = (key) => {
   const audio = new Audio(url)
 
   audio.play()
+
+  audio.addEventListener('ended', () => {
+    const index = keyPressed.indexOf(key)
+    keyPressed.splice(index, 1)
+  })
 }
 
 // Function loadPage -----
@@ -101,9 +111,37 @@ const loadSounds = () => {
         loader.classList.add('fadeOut')
         setTimeout( () => { loader.classList.add('hide') }, 400)
         getName()
+        //const intervalAlphabet = setInterval(alphabetAnimation, 150)
       }
     })
   }
 }
 
 loadSounds()
+
+const width = window.innerWidth
+const height = window.innerHeight
+let keyPressed = []
+
+function setup() {
+  const canvas = createCanvas(width, height)
+  canvas.parent('canvasContainer')
+}
+
+function draw() {
+  clear()
+  background('rgba(0, 0, 0, 0)')
+
+  if(keyPressed.includes('a')) shapeA()
+  if(keyPressed.includes('b')) shapeB()
+}
+
+const shapeA = () => {
+  fill('#ff0000')
+  ellipse(width / 2, height / 2, 200)
+}
+
+const shapeB = () => {
+  fill('#00ff00')
+  ellipse(width / 3, height / 3, 20)
+}
