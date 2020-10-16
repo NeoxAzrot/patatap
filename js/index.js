@@ -15,9 +15,12 @@
 
 const getName = () => {
   const span = document.getElementById('name')
-  //const name = prompt('Quel est votre prénom ?')
-  //span.textContent = name
-  span.textContent = "Sami"
+  let name = sessionStorage.getItem('name');
+  if(!name) {
+    name = prompt('Quel est votre prénom ?')
+    sessionStorage.setItem('name', name)
+  }
+  span.textContent = `Bonjour ${name}`
 }
 
 // Key pressed - alphabet -----
@@ -70,7 +73,7 @@ const alphabetAnimation = () => {
   keyShow(elt)
   setTimeout( () => { keyHide(elt) }, 800)
 
-  playSound(alphabet[alphabetIndex])
+  //playSound(alphabet[alphabetIndex])
 }
 
 // Function playSound -----
@@ -118,6 +121,29 @@ const loadSounds = () => {
 }
 
 loadSounds()
+
+// Function to change color with image -----
+
+const button = document.getElementById('colorsButton')
+const container = document.getElementById('colorsContainer')
+
+button.addEventListener('click', () => {
+  container.classList.toggle('hide')
+})
+
+const images = document.querySelectorAll('.patatap__image')
+
+for (let i = 0; i < images.length; i++) {
+  images[i].addEventListener('click', () => {
+    const vibrant = new Vibrant(images[i].src)
+
+    vibrant.getPalette((error, palette) => {
+      console.log('palette', palette)
+    })
+  })
+}
+
+// Function p5.js to animate
 
 const width = window.innerWidth
 const height = window.innerHeight

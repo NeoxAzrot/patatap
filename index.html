@@ -8,8 +8,6 @@
   <link rel="icon" href="img/favicon.ico" />
 
   <link rel="stylesheet" href="css/styles.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
 </head>
 <body>
 
@@ -30,12 +28,38 @@
 
     <div id="key"></div>
 
-    <footer class="patatap__footer">
-      <p>Réalisé dans le cadre du cours Javascript Avancé</p>
-      <img src="img/logo.png" alt="Logo filiare mmi, UIT Bordeaux" class="patatap__logo" >
-    </footer>
+    <div class="patatap__bottom">
+      <div class="patatap__colors">
+        <button class="patatap__color-button" id="colorsButton">🎨</button>
+        <ul id="colorsContainer" class="patatap__container-images hide">
+          <li>
+            <img class="patatap__image" src="https://images.unsplash.com/photo-1602780669668-241ff10e6329?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1791&q=80">
+          </li>
+          <li>
+            <img class="patatap__image" src="https://images.unsplash.com/photo-1602798139623-a172791e3c9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80">
+          </li>
+          <li>
+            <img class="patatap__image" src="https://images.unsplash.com/photo-1602797925179-6ab7f10c315d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80">
+          </li>
+          <li>
+            <img class="patatap__image" src="https://images.unsplash.com/photo-1602709890961-7eb8f15672b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80">
+          </li>
+          <li>
+            <img class="patatap__image" src="https://images.unsplash.com/photo-1602741666341-0bd77e9fe67f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80">
+          </li>
+        </ul>
+      </div>
+
+      <footer class="patatap__footer">
+        <p>Réalisé dans le cadre du cours Javascript Avancé</p>
+        <img src="img/logo.png" alt="Logo filiare mmi, UIT Bordeaux" class="patatap__logo" >
+      </footer>
+    </div>
+
   </div>
 
+  <script src="js/libs/p5.min.js"></script>
+  <script src="js/libs/vibrant.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>

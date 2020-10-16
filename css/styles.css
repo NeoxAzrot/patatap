@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 body {
   background-color: #d9c5b1;
+  overflow: hidden;
 }
 
 .patatap {
@@ -62,10 +62,6 @@ body {
   flex-direction: column;
 }
 
-.hide {
-  display: none;
-}
-
 .fadeOut {
   opacity: 0;
   transition: 0.4s ease-out;
@@ -85,6 +81,60 @@ body {
   z-index: -1;
 }
 
+.patatap__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.patatap__colors {
+  position: relative;
+}
+
+.patatap__color-button {
+  padding: 10px 14px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  font-size: 20px;
+  border-width: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+.patatap__container-images {
+  position: absolute;
+  width: 115px;
+  height: auto;
+  top: -20px;
+  left: 0;
+  background-color: #ffffff;
+  padding: 20px;
+  transform: translateY(-100%);
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.patatap__image {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  object-fit: cover;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
 /* Alphabet animation */
 
 #key p {
@@ -97,7 +147,7 @@ body {
   opacity: 1;
   z-index: -2;
   transform-origin: center 65px;
-  color: #595149;
+  color: #c7b19b;
   transition: 0.8s ease-in-out;
 }
 
