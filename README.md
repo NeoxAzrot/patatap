@@ -16,3 +16,7 @@ A patatap ([example](https://patatap.com/)) is a website that can be used with k
 - [ ] Create an animation per letter of the keyboard
 
 But, you can already try the site : [neoxazrot.github.io/patatap](https://neoxazrot.github.io/patatap/).
+
+---
+
+[Sami Lafrance](https://www.samilafrance.com/)
